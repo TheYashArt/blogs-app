@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 function DashBoard() {
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="my-40">
       {/* <Header /> */}
       <div className="text-6xl font-extrabold text-slate-800 my-10 flex justify-start px-3 sm:text-center sm:flex sm:justify-center">
         Blogs App
@@ -23,7 +23,7 @@ function DashBoard() {
           <button onClick={()=>{navigate("/Login")}} className="bg-slate-700 px-8 py-3 w-[300px] text-white">Login to Account</button>
         </div>
         <div>
-          <button onClick={()=>{navigate("/BlogOuterCards")}} className="bg-slate-700 px-8 py-3 w-[300px] text-white">HomePageShortcur</button>
+          <button onClick={()=>{navigate("/Home")}} className="bg-slate-700 px-8 py-3 w-[300px] text-white">HomePageShortcur</button>
         </div>
       </div>
     </div>

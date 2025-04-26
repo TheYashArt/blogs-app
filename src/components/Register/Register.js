@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 function Register() {
     const navigate = useNavigate()
   return (
-    <div className="flex justify-start">
+    <div className="flex justify-start my-14">
       <div className="bg-slate-200 px-5 py-8 rounded shadow-lg w-[320px] sm:w-[400px] h-[450px] mt-20 mx-auto flex flex-col justify-center items-center">
         <div className="text-3xl font-semibold text-slate-800">Register</div>
         <div className="mt-4">

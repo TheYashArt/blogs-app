@@ -10,7 +10,7 @@ function Header(){
     }
 
     return (
-        <header className="w-full bg-gray-800 text-white p-4 flex justify-between items-center">
+        <header className="w-full bg-gray-800 text-white p-4 flex justify-between items-center fixed top-0">
             <div onClick={()=>{navigate("/")}} className="text-2xl text-white font-bold py-2">Blogs App</div>
             <div className="gap-6 sm:flex hidden">
                 <div onClick={()=>{navigate("/Login")}} className="text-xl">Login</div>
