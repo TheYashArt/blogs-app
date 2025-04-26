@@ -5,6 +5,8 @@ import BlogCards from '../BlogsOuterCards/BlogOuterCards';
 import DashBoard from '../DashBoard/DashBoard';
 import Register from '../Register/Register';
 import Home from '../Home/Home';
+import BlogDisplay from '../BlogDisplay/BlogDsiplay';
+import BlogUpload from '../BlogUpload/BlogUpload';
 import BlogOuterCards from '../BlogsOuterCards/BlogOuterCards';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
@@ -19,7 +21,8 @@ function App() {
           <Route path='/BlogOuterCards' element={<BlogOuterCards/>} />
           <Route path='/Register' element={<Register/>} />
           <Route path='/Home' element={<Home/>} />
-
+          <Route path='/BlogUpload' element={<BlogUpload/>} />
+          <Route path='/BlogDisplay' element={<BlogDisplay/>} />
           <Route path='/BlogCards' element={<BlogCards/>} />
         </Routes>
       </Router>

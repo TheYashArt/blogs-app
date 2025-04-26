@@ -3,8 +3,8 @@ import BlogOuterCards from "../BlogsOuterCards/BlogOuterCards";
 function Home() {
   const blogsData = [
     {
-      title: "Blog 1", // Changed "Title" to "title"
-      description: "This is a simple blog description.", // Changed "Description" to "description"
+      title: "Blog 1",
+      description: "This is a simple blog description.",
     },
     {
       title: "Blog 2",

@@ -23,7 +23,7 @@ function DashBoard() {
           <button onClick={()=>{navigate("/Login")}} className="bg-slate-700 px-8 py-3 w-[300px] text-white">Login to Account</button>
         </div>
         <div>
-          <button onClick={()=>{navigate("/Home")}} className="bg-slate-700 px-8 py-3 w-[300px] text-white">HomePageShortcur</button>
+          <button onClick={()=>{navigate("/BlogDisplay")}} className="bg-slate-700 px-8 py-3 w-[300px] text-white">BlodDIsplayShortcur</button>
         </div>
       </div>
     </div>
