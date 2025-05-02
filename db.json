@@ -1,0 +1,20 @@
+{
+  "User": [
+    {
+      "id": "bb00",
+      "Email": "shelkey859@gmail.com",
+      "Password": "1234"
+    }
+  ],
+  "Blogs": [
+    {
+      "id": "2978",
+      "title": "Blog 1",
+      "description": "Description",
+      "date": "2025-5-2",
+      "auther": "shelkey859@gmail.com",
+      "likes": 0,
+      "dislikes": 0
+    }
+  ]
+}

@@ -5,14 +5,14 @@ import BlogCards from '../BlogsOuterCards/BlogOuterCards';
 import DashBoard from '../DashBoard/DashBoard';
 import Register from '../Register/Register';
 import Home from '../Home/Home';
-import BlogDisplay from '../BlogDisplay/BlogDsiplay';
+import BlogDisplay from '../BlogDisplay/BlogDisplay';
 import BlogUpload from '../BlogUpload/BlogUpload';
 import BlogOuterCards from '../BlogsOuterCards/BlogOuterCards';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App" style={{userSelect: "none"}}>
+    <div style={{userSelect: "none"}}>
       <Router>
       <Header/>
         <Routes>
@@ -22,7 +22,7 @@ function App() {
           <Route path='/Register' element={<Register/>} />
           <Route path='/Home' element={<Home/>} />
           <Route path='/BlogUpload' element={<BlogUpload/>} />
-          <Route path='/BlogDisplay' element={<BlogDisplay/>} />
+          <Route path='/BlogDisplay/:id' element={<BlogDisplay/>} />
           <Route path='/BlogCards' element={<BlogCards/>} />
         </Routes>
       </Router>

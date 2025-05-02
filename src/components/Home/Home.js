@@ -1,24 +1,34 @@
+import { useNavigate } from "react-router-dom";
 import BlogOuterCards from "../BlogsOuterCards/BlogOuterCards";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function Home() {
-  const blogsData = [
-    {
-      title: "Blog 1",
-      description: "This is a simple blog description.",
-    },
-    {
-      title: "Blog 2",
-      description: "This is a sample blog description.",
-    },
-    {
-      title: "Blog 3",
-      description: "This is a sample blog description.",
-    },
-    {
-      title: "Blog 4",
-      description: "This is a sample blog description.",
-    },
-  ];
+  const navigate = useNavigate();
+
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  function handleUpload() {
+    if (user) {
+      navigate("/BlogUpload");
+    } else {
+      navigate("/Login");
+    }
+  }
+  const [Blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:4200/Blogs")
+      .then((res) => {
+        console.log("response" + res.data);
+        setBlogs(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <div className="my-24">
       <div className="flex justify-center">
@@ -35,15 +45,32 @@ function Home() {
           </div>
         </div>
       </div>
+      <div className="flex justify-end mt-8 mr-8">
+        <button
+          onClick={handleUpload}
+          className="bg-slate-700 px-3 py-2 w-[200px] sm:w-[300px] text-white ml-4"
+        >
+          Upload Your blog
+        </button>
+      </div>
       <div className="flex flex-col gap-9 sm:grid sm:grid-cols-2">
-        {blogsData.map((blog, index) => {
+        {Blogs.map((blog, index) => {
           console.log("Blog data", blog);
           return (
-            <BlogOuterCards
-              key={index}
-              title={blog.title}
-              description={blog.description}
-            />
+            <div
+              onClick={() => {
+                navigate("/BlogDisplay/"+blog.id);
+                console.log(blog.id);
+              }}
+            >
+              <BlogOuterCards
+                key={index}
+                title={blog.title}
+                description={blog.description}
+                author={blog.auther}
+                time={blog.date}
+              />
+            </div>
           );
         })}
       </div>

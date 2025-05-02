@@ -4,6 +4,12 @@ import { useNavigate } from 'react-router-dom';
 function Header(){
     const navigate = useNavigate();
     const [menuState, setmenuState] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+    const user = JSON.parse(localStorage.getItem("User"));
+
+    console.log(user);
+    
 
     function menuOpen(){
         setmenuState(!menuState);
@@ -12,7 +18,7 @@ function Header(){
     return (
         <header className="w-full bg-gray-800 text-white p-4 flex justify-between items-center fixed top-0">
             <div onClick={()=>{navigate("/")}} className="text-2xl text-white font-bold py-2">Blogs App</div>
-            <div className="gap-6 sm:flex hidden">
+            {!user ? <><div className="gap-6 sm:flex hidden">
                 <div onClick={()=>{navigate("/Login")}} className="text-xl">Login</div>
                 <div onClick={()=>{navigate("/Register")}} className="text-xl">Sign Up</div>
             </div>
@@ -24,7 +30,7 @@ function Header(){
                         <div onClick={()=>{navigate("/Register")}} className="text-xl p-4 hover:bg-slate-700">Sign Up</div>
                     </div>
                 )
-            }
+            }</> : <div className='text-xl'>{user.Email}</div>}
         </header>
     );
 }
