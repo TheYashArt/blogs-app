@@ -1,0 +1,4 @@
+The uploading user email is not displaying at the user card 
+fix it 
+
+complete search part at Home.js

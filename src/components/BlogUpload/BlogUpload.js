@@ -19,7 +19,7 @@ function BlogUpload(){
         axios.post("http://localhost:4200/Blogs",{title, description, date, auther, likes, dislikes}).then((res)=>{
             console.log(res.data);
             if(res.data){
-                alert("Blog Uploaded Successfully")
+                // alert("Blog Uploaded Successfully")
                 navigate("/Home")
 
             }else{

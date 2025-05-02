@@ -11,9 +11,7 @@ function Register() {
   function handleRegister() {
     if (Password === ConfirmPassword) {
       axios.get("http://localhost:4200/User").then((Response) => {
-        const userExists = Response.data.some(
-          (user) => user.Email === Email
-        );
+        const userExists = Response.data.some((user) => user.Email === Email);
         if (userExists) {
           setErrorMsg("User already exists with this email");
           return;
@@ -23,7 +21,7 @@ function Register() {
             .then((Response) => {
               console.log(Response.data);
               if (Response.data) {
-                alert("Registration Successful");
+                // alert("Registration Successful");
                 navigate("/Login");
               } else {
                 alert("Registration Failed");

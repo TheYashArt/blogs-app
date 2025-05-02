@@ -6,13 +6,16 @@ function BlogDisplay() {
   const id = useParams().id;
 
   const [BlogData, setBlogData] = useState({});
+  const [likes, setLikes] = useState(0)
+  const [Dislikes, setDisLikes] = useState(0)
 
   useEffect(() => {
     axios
       .get(`http://localhost:4200/Blogs/${id}`)
       .then((res) => {
-        console.log(res.data);
         setBlogData(res.data);
+        setLikes(res.data.likes)
+        setDisLikes(res.data.dislikes)
       })
       .catch((error) => {
         console.log(error);
@@ -20,36 +23,48 @@ function BlogDisplay() {
   }, []);
 
   function handleLike() {
-    setBlogData((prev) => ({ ...prev, likes: prev.likes + 1 }));
+    console.log("Like clicked");
+    setLikes(likes + 1)
     axios
-      .patch("http://localhost:4200/Blogs/like/" + id, {likes: BlogData.likes})
+      .put(`http://localhost:4200/Blogs/${id}`, {
+        ...BlogData,
+        likes: likes + 1,
+      })
 
+      axios
+      .get(`http://localhost:4200/Blogs/${id}`)
       .then((res) => {
         console.log(res.data);
-        // alert("Blog Liked Successfully");
+        setBlogData(res.data);
+        setLikes(res.data.likes)
+        setDisLikes(res.data.dislikes)
+        console.log(likes, Dislikes);
       })
       .catch((error) => {
         console.log(error);
-        // alert("Blog Like Failed");
       });
   }
-
+  
   function handleDislike() {
-    setBlogData((prev) => ({ ...prev, dislikes: prev.dislikes + 1 }));
-
+    console.log("Dislike clicked");
+    setDisLikes(Dislikes + 1)
     axios
-      .patch("http://localhost:4200/Blogs/dislike/" + id, {dislikes: BlogData.dislikes})
+      .put(`http://localhost:4200/Blogs/${id}`, {
+        ...BlogData,
+        dislikes: Dislikes + 1,
+      })
 
+      axios
+      .get(`http://localhost:4200/Blogs/${id}`)
       .then((res) => {
-        console.log(res.data);
-        // alert("Blog Disliked Successfully");
+        setBlogData(res.data);
+        setLikes(res.data.likes)
+        setDisLikes(res.data.dislikes)
       })
       .catch((error) => {
         console.log(error);
-        // alert("Blog Dislike Failed");
       });
   }
-
   return (
     <div className="my-24 grid place-content-center">
       <div>
@@ -64,11 +79,11 @@ function BlogDisplay() {
             <div className="flex justify-start mt-10 gap-5 text-2xl">
               <div onClick={handleLike} className="p-2 bg-yellow-400 text-center px-3 rounded-lg">
                 <i class="fa-solid fa-thumbs-up"></i>
-                <span >{BlogData.likes}</span>
+                <span className="mx-2" >{BlogData.likes}</span>
               </div>
               <div onClick={handleDislike} className="p-2 bg-red-400 text-center px-3 rounded-lg">
                 <i class="fa-solid fa-thumbs-down"></i>
-                <span >{BlogData.dislikes}</span>
+                <span className="mx-2" >{BlogData.dislikes}</span>
               </div>
             </div>
           </div>

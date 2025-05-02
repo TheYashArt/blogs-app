@@ -4,12 +4,44 @@
       "id": "bb00",
       "Email": "shelkey859@gmail.com",
       "Password": "1234"
+    },
+    {
+      "id": "6b6a",
+      "Email": "shelke@gmail.com",
+      "Password": "123"
     }
   ],
   "Blogs": [
     {
       "id": "2978",
       "title": "Blog 1",
+      "description": "Description",
+      "date": "2025-5-2",
+      "auther": "shelkey859@gmail.com",
+      "likes": 18,
+      "dislikes": 11
+    },
+    {
+      "id": "c6c1",
+      "title": "Blog 2",
+      "description": "This is desciprtion of blog second and \ni trying to complete app",
+      "date": "2025-5-2",
+      "auther": "shelkey859@gmail.com",
+      "likes": 14,
+      "dislikes": 7
+    },
+    {
+      "id": "5a9a",
+      "title": "Blog 3 ",
+      "description": "Blog 3rd description",
+      "date": "2025-5-2",
+      "auther": "shelkey859@gmail.com",
+      "likes": 6,
+      "dislikes": 5
+    },
+    {
+      "id": "5383",
+      "title": "from Shelke@gmail.com",
       "description": "Description",
       "date": "2025-5-2",
       "auther": "shelkey859@gmail.com",

@@ -8,6 +8,9 @@ function Home() {
 
   const user = JSON.parse(localStorage.getItem("user"));
 
+  const [Search, setSearch] = useState("");
+  const [Blogs, setBlogs] = useState([]);
+
   function handleUpload() {
     if (user) {
       navigate("/BlogUpload");
@@ -15,7 +18,6 @@ function Home() {
       navigate("/Login");
     }
   }
-  const [Blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     axios
@@ -29,6 +31,26 @@ function Home() {
       });
   }, []);
 
+  function handleSearch(e) {
+    setSearch(e.target.value);
+    if (!Search) {
+      const filteredBlogs = Blogs.filter((blog) =>
+        blog.title.toLowerCase().includes(Search.toLowerCase())
+      );
+      setBlogs(filteredBlogs);
+    } else {
+      axios
+        .get("http://localhost:4200/Blogs")
+        .then((res) => {
+          console.log("response" + res.data);
+          setBlogs(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }
+
   return (
     <div className="my-24">
       <div className="flex justify-center">
@@ -38,6 +60,7 @@ function Home() {
           </div>
           <div>
             <input
+              onChange={handleSearch}
               type="text"
               placeholder="Enter a Title to search"
               className="bg-none outline-none w-[300px] sm:w-[500px] "
@@ -48,7 +71,7 @@ function Home() {
       <div className="flex justify-end mt-8 mr-8">
         <button
           onClick={handleUpload}
-          className="bg-slate-700 px-3 py-2 w-[200px] sm:w-[300px] text-white ml-4"
+          className="bg-slate-700 px-3 py-2 w-[200px] sm:w-[300px] text-white ml-4 mb-8"
         >
           Upload Your blog
         </button>
@@ -59,7 +82,7 @@ function Home() {
           return (
             <div
               onClick={() => {
-                navigate("/BlogDisplay/"+blog.id);
+                navigate("/BlogDisplay/" + blog.id);
                 console.log(blog.id);
               }}
             >
@@ -69,6 +92,8 @@ function Home() {
                 description={blog.description}
                 author={blog.auther}
                 time={blog.date}
+                likes={blog.likes}
+                dislikes={blog.dislikes}
               />
             </div>
           );

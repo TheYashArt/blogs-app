@@ -11,7 +11,7 @@ function Login() {
     axios.get("http://localhost:4200/User").then((Response) => {
       const user = Response.data.find((user) => user.Email === Email && user.Password === Password);
       if (user) {
-        alert("Login Successful");
+        // alert("Login Successful");
         localStorage.setItem("User", JSON.stringify(user));
         navigate("/Home");
       } else {
