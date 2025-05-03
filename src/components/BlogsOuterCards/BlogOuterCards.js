@@ -10,15 +10,15 @@ function BlogOuterCards({ title, description, author, time, likes, dislikes }) {
           <div className="flex justify-start text-sm italic">
             Created At : {time}
           </div>
-          <div className="text-3xl font-semibold text-slate-800 flex justify-start">
+          <div className="text-xl sm:text-3xl font-semibold text-slate-800 flex justify-start">
             {title}
           </div>
           <div className="mt-4 flex justify-start">
-            <div className="overflow-hidden text-justify text-ellipsis h-[260px]">
+            <div className="overflow-hidden text-justify text-ellipsis h-[150px] sm:h-[260px]">
               {description}
             </div>
           </div>
-          <div className="flex justify-end ">
+          <div className="flex justify-end mt-3">
             <div className="sm:flex gap-5 text-lg hidden">
               <div className="p-1 bg-yellow-400 text-center px-2 rounded-lg">
                 <i class="fa-solid fa-thumbs-up" />

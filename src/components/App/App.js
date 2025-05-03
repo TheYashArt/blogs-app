@@ -8,6 +8,7 @@ import Home from '../Home/Home';
 import BlogDisplay from '../BlogDisplay/BlogDisplay';
 import BlogUpload from '../BlogUpload/BlogUpload';
 import BlogOuterCards from '../BlogsOuterCards/BlogOuterCards';
+import HomePageredirect from '../HomePageredirect/HomePageredirect';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -16,8 +17,9 @@ function App() {
       <Router>
       <Header/>
         <Routes>
+          <Route path='/' element={<HomePageredirect/>} />
           <Route path='/Login' element={<Login/>} />
-          <Route path='/' element={<DashBoard/>} />
+          <Route path='/Dashboard' element={<DashBoard/>} />
           <Route path='/BlogOuterCards' element={<BlogOuterCards/>} />
           <Route path='/Register' element={<Register/>} />
           <Route path='/Home' element={<Home/>} />

@@ -20,7 +20,7 @@ function BlogDisplay() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [likes, Dislikes]);
 
   function handleLike() {
     console.log("Like clicked");
@@ -31,18 +31,6 @@ function BlogDisplay() {
         likes: likes + 1,
       })
 
-      axios
-      .get(`http://localhost:4200/Blogs/${id}`)
-      .then((res) => {
-        console.log(res.data);
-        setBlogData(res.data);
-        setLikes(res.data.likes)
-        setDisLikes(res.data.dislikes)
-        console.log(likes, Dislikes);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }
   
   function handleDislike() {
@@ -54,16 +42,6 @@ function BlogDisplay() {
         dislikes: Dislikes + 1,
       })
 
-      axios
-      .get(`http://localhost:4200/Blogs/${id}`)
-      .then((res) => {
-        setBlogData(res.data);
-        setLikes(res.data.likes)
-        setDisLikes(res.data.dislikes)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }
   return (
     <div className="my-24 grid place-content-center">

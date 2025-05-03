@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 
 function Home() {
   const navigate = useNavigate();
-
-  const user = JSON.parse(localStorage.getItem("user"));
-
+  const [FilteredBlogs, setFilteredBlogs] = useState([]);
   const [Search, setSearch] = useState("");
   const [Blogs, setBlogs] = useState([]);
+
+  const user = JSON.parse(localStorage.getItem("user"));
 
   function handleUpload() {
     if (user) {
@@ -29,26 +29,29 @@ function Home() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+
+      if (Search.trim() === '') {
+        setFilteredBlogs(Blogs); // restore full list when search is empty
+      } else {
+        const lowerSearch = Search.toLowerCase();
+        const filtered = Blogs.filter(
+          (blog) =>
+            blog.title.toLowerCase().includes(lowerSearch) ||
+            blog.description.toLowerCase().includes(lowerSearch)
+        );
+        setFilteredBlogs(filtered);
+      }
+
+  }, [Search]);
 
   function handleSearch(e) {
     setSearch(e.target.value);
-    if (!Search) {
-      const filteredBlogs = Blogs.filter((blog) =>
+
+    setFilteredBlogs(
+      Blogs.filter((blog) =>
         blog.title.toLowerCase().includes(Search.toLowerCase())
-      );
-      setBlogs(filteredBlogs);
-    } else {
-      axios
-        .get("http://localhost:4200/Blogs")
-        .then((res) => {
-          console.log("response" + res.data);
-          setBlogs(res.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
+      )
+    );
   }
 
   return (
@@ -77,27 +80,55 @@ function Home() {
         </button>
       </div>
       <div className="flex flex-col gap-9 sm:grid sm:grid-cols-2">
-        {Blogs.map((blog, index) => {
-          console.log("Blog data", blog);
-          return (
-            <div
-              onClick={() => {
-                navigate("/BlogDisplay/" + blog.id);
-                console.log(blog.id);
-              }}
-            >
-              <BlogOuterCards
-                key={index}
-                title={blog.title}
-                description={blog.description}
-                author={blog.auther}
-                time={blog.date}
-                likes={blog.likes}
-                dislikes={blog.dislikes}
-              />
-            </div>
-          );
-        })}
+        {FilteredBlogs.length > 0 ? (
+          <>
+            {FilteredBlogs.map((blog, index) => {
+              console.log("Blog data", blog);
+              return (
+                <div
+                  onClick={() => {
+                    navigate("/BlogDisplay/" + blog.id);
+                    console.log(blog.id);
+                  }}
+                >
+                  <BlogOuterCards
+                    key={index}
+                    title={blog.title}
+                    description={blog.description}
+                    author={blog.auther}
+                    time={blog.date}
+                    likes={blog.likes}
+                    dislikes={blog.dislikes}
+                  />
+                </div>
+              );
+            })}
+          </>
+        ) : (
+          <>
+            {Blogs.map((blog, index) => {
+              console.log("Blog data", blog);
+              return (
+                <div
+                  onClick={() => {
+                    navigate("/BlogDisplay/" + blog.id);
+                    console.log(blog.id);
+                  }}
+                >
+                  <BlogOuterCards
+                    key={index}
+                    title={blog.title}
+                    description={blog.description}
+                    author={blog.auther}
+                    time={blog.date}
+                    likes={blog.likes}
+                    dislikes={blog.dislikes}
+                  />
+                </div>
+              );
+            })}
+          </>
+        )}
       </div>
     </div>
   );

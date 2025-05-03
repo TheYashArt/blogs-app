@@ -12,7 +12,7 @@ function BlogUpload(){
     const [description, setDescription] = useState("")
     const [likes, setlikes] = useState(0)
     const [dislikes, setdislikes] = useState(0)
-    const user = JSON.parse(localStorage.getItem("user"));
+    const user = JSON.parse(localStorage.getItem("User"));
     const auther = user.Email;
 
     function handleUpload(){
