@@ -30,18 +30,17 @@ function Home() {
         console.log(error);
       });
 
-      if (Search.trim() === '') {
-        setFilteredBlogs(Blogs); // restore full list when search is empty
-      } else {
-        const lowerSearch = Search.toLowerCase();
-        const filtered = Blogs.filter(
-          (blog) =>
-            blog.title.toLowerCase().includes(lowerSearch) ||
-            blog.description.toLowerCase().includes(lowerSearch)
-        );
-        setFilteredBlogs(filtered);
-      }
-
+    if (Search.trim() === "") {
+      setFilteredBlogs(Blogs); // restore full list when search is empty
+    } else {
+      const lowerSearch = Search.toLowerCase();
+      const filtered = Blogs.filter(
+        (blog) =>
+          blog.title.toLowerCase().includes(lowerSearch) ||
+          blog.description.toLowerCase().includes(lowerSearch)
+      );
+      setFilteredBlogs(filtered);
+    }
   }, [Search]);
 
   function handleSearch(e) {
@@ -104,7 +103,7 @@ function Home() {
               );
             })}
           </>
-        ) : (
+        ) : Search.length === 0 ? (
           <>
             {Blogs.map((blog, index) => {
               console.log("Blog data", blog);
@@ -128,6 +127,10 @@ function Home() {
               );
             })}
           </>
+        ) : (
+          <div className="text-center text-3xl mt-9 text-red-600 w-screen">
+            No records Found
+          </div>
         )}
       </div>
     </div>

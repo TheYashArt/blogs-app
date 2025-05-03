@@ -1,4 +1,5 @@
-The uploading user email is not displaying at the user card 
-fix it 
-
-complete search part at Home.js
+likes functionality 
+step 1: add a array of likedBlogs in user accunt 
+step 2: add a array of likedBy in Blogs object
+step 3: add functionality to check if the blog is liked by the user or not
+step 4: add functionlity to add a new like if the user did not liked it in past and prevent him to relike it

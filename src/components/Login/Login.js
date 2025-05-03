@@ -6,20 +6,23 @@ function Login() {
   const navigate = useNavigate();
   const [Email, setEmail] = useState("")
   const [Password, setPassword] = useState("")
+  const [ErrorMsg, setErrorMsg] = useState("")
 
   function handleLogin() {
+    if(Email===null||Email===""||Password===null||Password===""){
+      setErrorMsg("Please Enter the details")
+    }
+
     axios.get("http://localhost:4200/User").then((Response) => {
       const user = Response.data.find((user) => user.Email === Email && user.Password === Password);
       if (user) {
         // alert("Login Successful");
         localStorage.setItem("User", JSON.stringify(user));
         navigate("/Home");
-      } else {
-        alert("Invalid email or password");
       }
     }).catch((error) => {
       console.error("There was an error!", error);
-      alert("Login error");
+      // alert("Login error");
     })
   }
 
@@ -34,6 +37,9 @@ function Login() {
         <div className="mt-4">
           <div className="flex justify-start text-lg">Enter your Password</div>
           <div><input onChange={(e)=>{setPassword(e.target.value)}} type="password" placeholder="password123" className="px-3 py-1 flex justify-start bg-white w-[270px]"/></div>
+        </div>
+        <div className="text-red-600">
+          {ErrorMsg}
         </div>
         <div className="mt-4">
             Dont Have an account <span className="text-blue-700" onClick={()=>{navigate("/Register")}}>Register here!!</span>

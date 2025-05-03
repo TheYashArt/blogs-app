@@ -8,7 +8,13 @@ function Register() {
   const [Password, setPassword] = useState("");
   const [ConfirmPassword, setConfirmPassword] = useState("");
   const [ErrorMsg, setErrorMsg] = useState("");
+  const [LikedBlogs, setLikedBlogs] = useState([])
   function handleRegister() {
+    if(Email===null||Email===""||Password===null||Password===""){
+      setErrorMsg("Enter the constraints")
+      return
+    }
+
     if (Password === ConfirmPassword) {
       axios.get("http://localhost:4200/User").then((Response) => {
         const userExists = Response.data.some((user) => user.Email === Email);
@@ -17,7 +23,7 @@ function Register() {
           return;
         } else {
           axios
-            .post("http://localhost:4200/User", { Email, Password })
+            .post("http://localhost:4200/User", { Email, Password, LikedBlogs })
             .then((Response) => {
               console.log(Response.data);
               if (Response.data) {
@@ -78,7 +84,7 @@ function Register() {
           </div>
           <div>
             {ErrorMsg && (
-              <div className="text-red-500 text-sm mt-2">{ErrorMsg}</div>
+              <div className="text-red-500 text-sm mt-2 text-center">{ErrorMsg}</div>
             )}
           </div>
         </div>

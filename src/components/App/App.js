@@ -10,6 +10,7 @@ import BlogUpload from '../BlogUpload/BlogUpload';
 import BlogOuterCards from '../BlogsOuterCards/BlogOuterCards';
 import HomePageredirect from '../HomePageredirect/HomePageredirect';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import EditBlog from '../EditBlog/EditBlog';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Header/>
         <Routes>
           <Route path='/' element={<HomePageredirect/>} />
+          <Route path='/EditBlog/:BlogId' element={<EditBlog/>} />
           <Route path='/Login' element={<Login/>} />
           <Route path='/Dashboard' element={<DashBoard/>} />
           <Route path='/BlogOuterCards' element={<BlogOuterCards/>} />
