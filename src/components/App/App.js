@@ -5,6 +5,7 @@ import BlogCards from '../BlogsOuterCards/BlogOuterCards';
 import DashBoard from '../DashBoard/DashBoard';
 import Register from '../Register/Register';
 import Home from '../Home/Home';
+import Profile from '../Profile/Profile';
 import BlogDisplay from '../BlogDisplay/BlogDisplay';
 import BlogUpload from '../BlogUpload/BlogUpload';
 import BlogOuterCards from '../BlogsOuterCards/BlogOuterCards';
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePageredirect/>} />
           <Route path='/EditBlog/:BlogId' element={<EditBlog/>} />
+          <Route path='/Profile/:UserId' element={<Profile/>} />
           <Route path='/Login' element={<Login/>} />
           <Route path='/Dashboard' element={<DashBoard/>} />
           <Route path='/BlogOuterCards' element={<BlogOuterCards/>} />

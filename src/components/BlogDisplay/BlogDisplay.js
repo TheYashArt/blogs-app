@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function BlogDisplay() {
   const id = useParams().id;
-  const user = JSON.parse(localStorage.getItem("User"));
+  const user = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
 
   const [BlogData, setBlogData] = useState({});

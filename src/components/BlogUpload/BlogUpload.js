@@ -15,7 +15,7 @@ function BlogUpload() {
   const [LikedBy, setLikedBy] = useState([]);
   const [DislikedBy, setDisLikedBy] = useState([]);
   const [ErrorMsg, setErrorMsg] = useState("")
-  const user = JSON.parse(localStorage.getItem("User"));
+  const user = JSON.parse(localStorage.getItem("user"));
   const auther = user.Email;
 
   function handleUpload() {

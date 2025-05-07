@@ -7,6 +7,8 @@ function Login() {
   const [Email, setEmail] = useState("")
   const [Password, setPassword] = useState("")
   const [ErrorMsg, setErrorMsg] = useState("")
+  const [firstName, setfirstName] = useState("");
+    const [lastName, setlastName] = useState("");
 
   function handleLogin() {
     if(Email===null||Email===""||Password===null||Password===""){
@@ -17,7 +19,9 @@ function Login() {
       const user = Response.data.find((user) => user.Email === Email && user.Password === Password);
       if (user) {
         // alert("Login Successful");
-        localStorage.setItem("User", JSON.stringify(user));
+        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("UserFirstName", Response.data.FirstName)
+        localStorage.setItem("UserLastName", Response.data.LastName)
         navigate("/Home");
       }
     }).catch((error) => {

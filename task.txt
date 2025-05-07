@@ -1,5 +1,3 @@
-likes functionality 
-step 1: add a array of likedBlogs in user accunt 
-step 2: add a array of likedBy in Blogs object
-step 3: add functionality to check if the blog is liked by the user or not
-step 4: add functionlity to add a new like if the user did not liked it in past and prevent him to relike it
+make a user profile section
+add option to add data like first name and last name 
+display the data on header contatinating the first name and last name in repacement of gmail

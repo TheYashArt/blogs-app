@@ -5,7 +5,7 @@ function HomePageredirect(){
 
     const navigate = useNavigate();
     useEffect(()=>{
-        const user = JSON.parse(localStorage.getItem("User"));
+        const user = JSON.parse(localStorage.getItem("user"));
         if(user){
             navigate("/Home")
         }

@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 function Header() {
   const navigate = useNavigate();
   const [menuState, setmenuState] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const user = JSON.parse(localStorage.getItem("User"));
+  
+  // console.log('localStorage.getItem("user"): ', localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("user"));
 
   console.log(user);
 
@@ -14,9 +14,8 @@ function Header() {
     setmenuState(!menuState);
   }
 
-  function handleLogout(){
-    localStorage.removeItem("User");
-    setIsLoggedIn(false);
+  function handleLogout() {
+    localStorage.removeItem("user");
     navigate("/Dashboard");
   }
 
@@ -76,8 +75,16 @@ function Header() {
         </>
       ) : (
         <div className="flex gap-6 text-center">
-          <div className="text-xl">{user.Email}</div>
-          <div className="text-center text-xl" onClick={handleLogout}>Log Out</div>
+          <div className="text-xl" onClick={()=>{navigate("/Profile/"+ user.id)}}>
+            {(user.FirstName !== null ||
+            user.FirstName !== "" && user.LastName !== null ||
+            user.LastName !== "")
+              ? user.FirstName + " " + user.LastName
+              : user.Email}
+          </div>
+          <div className="text-center text-xl" onClick={handleLogout}>
+            Log Out
+          </div>
         </div>
       )}
     </header>
