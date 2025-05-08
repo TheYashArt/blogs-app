@@ -9,6 +9,7 @@ function Register() {
   const [ConfirmPassword, setConfirmPassword] = useState("");
   const [ErrorMsg, setErrorMsg] = useState("");
   const [LikedBlogs, setLikedBlogs] = useState([])
+  const [DislikedBlogs, setDislikedBlogs] = useState([])
   const [FirstName, setfirstName] = useState("")
   const [LastName, setlastName] = useState("")
   function handleRegister() {
@@ -25,7 +26,7 @@ function Register() {
           return;
         } else {
           axios
-            .post("http://localhost:4200/User", { Email, Password, LikedBlogs, FirstName, LastName })
+            .post("http://localhost:4200/User", { Email, Password, LikedBlogs, FirstName, LastName, DislikedBlogs })
             .then((Response) => {
               console.log(Response.data);
               if (Response.data) {

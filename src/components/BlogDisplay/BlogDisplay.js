@@ -39,6 +39,11 @@ function BlogDisplay() {
         ? BlogData.LikedBy.filter((id) => id !== user.id)
         : [...BlogData.LikedBy, user.id],
     });
+
+    axios.put(`http://localhost:4200/User/${user.id}`,{
+      ...user,
+      LikedBlogs : [...user.LikedBlogs, BlogData.id]
+    })
   }
 
   function handleDislike() {
@@ -55,6 +60,12 @@ function BlogDisplay() {
         ? BlogData.DislikedBy.filter((id) => id !== user.id)
         : [...BlogData.DislikedBy, user.id],
     });
+
+
+    axios.put(`http://localhost:4200/User/${user.id}`, {
+      ...user,
+      DislikedBlogs : [...user.DislikedBlogs, BlogData.id]
+    })
   }
   function handledelete() {
     axios.delete(`http://localhost:4200/Blogs/${id}`).then((Response) => {
@@ -95,16 +106,16 @@ function BlogDisplay() {
               </div>
             </div>
             {BlogData.auther === user.Email ? (
-              <div className="flex gap-3">
+              <div className="sm:flex sm:gap-3">
                 <div
                   onClick={handleEdit}
-                  className=" bg-slate-800 text-white px-5 py-1 text-xl rounded-md "
+                  className=" bg-slate-800 text-white px-5 py-1 my-2 text-xl rounded-md "
                 >
                   Edit
                 </div>
                 <div
                   onClick={handledelete}
-                  className=" bg-red-800 text-white px-5 py-1 text-xl rounded-md "
+                  className=" bg-red-800 text-white px-5 py-1 my-2 text-xl rounded-md "
                 >
                   Delete
                 </div>

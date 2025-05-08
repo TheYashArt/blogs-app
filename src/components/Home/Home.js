@@ -54,7 +54,7 @@ function Home() {
   }
 
   return (
-    <div className="my-24">
+    <div className="my-24 mr-4">
       <div className="flex justify-center">
         <div className="flex gap-4 justify-center border border-black w-fit px-6 py-1 rounded-md items-center">
           <div>
@@ -89,7 +89,7 @@ function Home() {
                     navigate("/BlogDisplay/" + blog.id);
                     console.log(blog.id);
                   }}
-                >
+                  className="hover:scale-[1.03] hover:ease-in-out hover:duration-150"                >
                   <BlogOuterCards
                     key={index}
                     title={blog.title}
@@ -113,6 +113,7 @@ function Home() {
                     navigate("/BlogDisplay/" + blog.id);
                     console.log(blog.id);
                   }}
+                  className="hover:scale-[1.03] hover:ease-in-out hover:duration-150"
                 >
                   <BlogOuterCards
                     key={index}

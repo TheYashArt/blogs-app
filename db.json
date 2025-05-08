@@ -5,6 +5,7 @@
       "Email": "shelke@gmail.com",
       "Password": "123",
       "LikedBlogs": [],
+      "DislikedBlogs": [],
       "FirstName": "yash",
       "LastName": "Shelke"
     },
@@ -13,6 +14,7 @@
       "Email": "shelke123@gmail.com",
       "Password": "123",
       "LikedBlogs": [],
+      "DislikedBlogs": [],
       "FirstName": "Yash ",
       "LastName": "Shelke"
     },
@@ -20,9 +22,26 @@
       "id": "1244",
       "Email": "shelke1234@gmail.com",
       "Password": "123",
-      "LikedBlogs": [],
+      "LikedBlogs": [
+        "7915"
+      ],
+      "DislikedBlogs": [
+        "7915"
+      ],
       "LastName": "shelke",
       "FirstName": "yash "
+    },
+    {
+      "id": "00d5",
+      "Email": "prasad16@gmail.com",
+      "Password": "@bhor772723_#PSB",
+      "LikedBlogs": [
+        "2f69",
+        "7915"
+      ],
+      "DislikedBlogs": [],
+      "FirstName": "pashya",
+      "LastName": ""
     }
   ],
   "Blogs": [
@@ -32,22 +51,12 @@
       "description": "Section 1.10.32 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC\n\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"\n\n1914 translation by H. Rackham\n\"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"\n\nSection 1.10.33 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC\n\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"\n\n1914 translation by H. Rackham\n\"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.\"",
       "date": "2025-5-4",
       "auther": "shelke@gmail.com",
-      "likes": 1,
+      "likes": 2,
       "dislikes": 0,
       "LikedBy": [
+        "00d5",
         "1244"
       ],
-      "DislikedBy": []
-    },
-    {
-      "id": "ed26",
-      "title": "blog 2",
-      "description": "lorem ",
-      "date": "2025-5-7",
-      "auther": "shelke1234@gmail.com",
-      "likes": 0,
-      "dislikes": 0,
-      "LikedBy": [],
       "DislikedBy": []
     },
     {
@@ -56,6 +65,20 @@
       "description": "yash",
       "date": "2025-5-7",
       "auther": "shelke1234@gmail.com",
+      "likes": 3,
+      "dislikes": 0,
+      "LikedBy": [
+        "00d5",
+        "1244"
+      ],
+      "DislikedBy": []
+    },
+    {
+      "id": "e20f",
+      "title": "super computer",
+      "description": "Performance and Speed:\n\nSupercomputers are designed for exceptional performance and speed, typically measured in FLOPS (Floating-Point Operations Per Second). A FLOP represents a mathematical operation involving decimal numbers.\nTo give you a sense of scale, a teraflop is a trillion (10^12) FLOPS, and modern supercomputers can achieve speeds in the range of petaflops (10^15) to exaflops (10^18).\n\nParallel Processing:\n\nParallel processing is a key feature of supercomputers. It involves breaking down complex tasks into smaller, parallelizable sub-tasks.\nSupercomputers use a combination of hardware (multiple processors or cores) and software (parallel algorithms) to distribute these sub-tasks across the available resources, which significantly reduces computation time.\nThe degree of parallelism can vary, and some supercomputers can handle tens of thousands of processing cores simultaneously.\n\n\n\nArchitecture:\n\nSupercomputers employ specialized hardware architectures optimized for their specific tasks.\nCustom-designed processors or accelerators (like GPUs) are often used to maximize performance.\nLarge memory banks are crucial for storing and quickly accessing massive datasets required for simulations and calculations.\n\n\n\nApplications:\n\nSupercomputers are applied to a vast array of scientific and engineering problems.\nWeather forecasting models, for example, use supercomputers to simulate atmospheric conditions and predict weather patterns.\nIn molecular modeling, supercomputers help researchers understand complex biological systems and design new drugs.\nThey are essential for simulations in nuclear physics, astrophysics, and climate science.\n\nExamples of Supercomputers:\n\nIBM's Summit and Sierra, located at Oak Ridge National Laboratory, were among the fastest supercomputers in 2021. Summit uses over 2.4 million CPU cores and over 27,000 GPUs.\nChina's Tianhe-2, also known as MilkyWay-2, was one of the world's fastest supercomputers in 2021, with over 3 million CPU cores.\nJapan's Fugaku, developed by RIKEN and Fujitsu, took the top spot in the TOP500 list in 2020, with a peak performance of over 442 petaflops.\n\nEnergy Consumption:\n\nSupercomputers consume a tremendous amount of energy due to their high computational demands and cooling requirements.\nCooling systems, including liquid cooling and advanced airflow management, are essential to prevent overheating.\nEnergy-efficient designs and components are continually sought to reduce power consumption and operating costs.\n\nSupercomputing Centers:\n\nSupercomputers are typically housed in specialized data centers, which provide the necessary infrastructure, power, and cooling.\nThese centers often offer access to supercomputing resources to researchers and institutions, fostering collaboration and innovation.\nNational labs, universities, and government agencies often operate these centers.\n\nAdvancements and Future Trends:\n\nAdvancements in supercomputing continue, driven by the need for faster, more efficient machines.\nQuantum computing, an emerging field, holds promise for solving certain problems exponentially faster than classical supercomputers, although practical quantum supercomputers are still in development.\nOther trends include the use of AI and machine learning techniques to enhance supercomputing capabilities, as well as efforts to improve energy efficiency and sustainability in supercomputer designs.\nSupercomputers are at the cutting edge of technology and have a profound impact on various fields, from scientific research to industry. Their evolution continues to shape the way we approach complex computational challenges and expand the boundaries of what is possible in computing. ",
+      "date": "2025-5-8",
+      "auther": "shelke@gmail.com",
       "likes": 0,
       "dislikes": 0,
       "LikedBy": [],

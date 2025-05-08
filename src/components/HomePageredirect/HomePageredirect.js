@@ -12,7 +12,6 @@ function HomePageredirect(){
         else{
             navigate("/Dashboard")
         }
-
     })
     return(
         <div>Loding ...</div>

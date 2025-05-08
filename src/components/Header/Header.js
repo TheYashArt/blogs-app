@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function Header() {
   const navigate = useNavigate();
   const [menuState, setmenuState] = useState(false);
-  
+
   // console.log('localStorage.getItem("user"): ', localStorage.getItem("user"));
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -20,7 +20,7 @@ function Header() {
   }
 
   return (
-    <header className="w-full bg-gray-800 text-white p-4 flex justify-between items-center fixed top-0">
+    <header className="w-full bg-gray-800 text-white p-4 flex justify-between items-center z-30 fixed top-0">
       <div
         onClick={() => {
           navigate("/");
@@ -75,11 +75,21 @@ function Header() {
         </>
       ) : (
         <div className="flex gap-6 text-center">
-          <div className="text-xl" onClick={()=>{navigate("/Profile/"+ user.id)}}>
-            {(user.FirstName !== null ||
-            user.FirstName !== "" && user.LastName !== null ||
-            user.LastName !== "")
+          <div
+            className="text-xl"
+            onClick={() => {
+              navigate("/Profile/" + user.id);
+            }}
+          >
+            {user.FirstName !== null &&
+            user.FirstName !== "" &&
+            user.LastName !== null &&
+            user.LastName !== ""
               ? user.FirstName + " " + user.LastName
+              : user.FirstName !== "" && user.FirstName !== null
+              ? user.FirstName
+              : user.LastName !== "" && user.LastName !== null
+              ? user.LastName
               : user.Email}
           </div>
           <div className="text-center text-xl" onClick={handleLogout}>
